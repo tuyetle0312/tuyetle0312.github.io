@@ -2,21 +2,28 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로모션 A/B 테스트 페이지</title>
+<title>프로모션 A/B 테스트</title>
 </head>
 
 <body style="text-align:center; font-family:sans-serif;">
 
 <h1>지금 바로 특별한 혜택을 확인하세요!</h1>
 
-<!-- 프로모션 이미지 (VWO에서 변경) -->
-<img id="promo-image" src="discount.jpg" alt="프로모션 이미지" width="250">
-
 <p>롬앤 립 제품</p>
 
-<p id="promo-text">15% 할인 진행 중</p>
+<!-- A안: 할인 -->
+<div id="version-a">
+    <img src="https://via.placeholder.com/250x250?text=15%25+할인" width="250">
+    <p>15% 할인 진행 중</p>
+</div>
 
-<button id="test-button" style="padding:10px 20px; font-size:16px;">
+<!-- B안: 사은품 -->
+<div id="version-b" style="display:none;">
+    <img src="https://via.placeholder.com/250x250?text=미니립+증정" width="250">
+    <p>미니 립 증정 이벤트</p>
+</div>
+
+<button id="buy-button" style="padding:10px 20px; font-size:16px;">
 지금 구매하기
 </button>
 
