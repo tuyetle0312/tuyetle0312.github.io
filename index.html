@@ -3,60 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>실험용 쇼핑몰 페이지</title>
+<title>롬앤 립 제품 이벤트</title>
 
 <style>
 body {
-  margin: 0;
-  font-family: sans-serif;
-  display: flex;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fff5f5;
+    margin: 0;
+    padding: 0;
 }
 
-/* 왼쪽 필터 */
-aside {
-  width: 220px;
-  background: #f5f5f5;
-  padding: 20px;
+.container {
+    padding: 30px;
 }
 
-aside h3 {
-  margin-bottom: 10px;
+h1 {
+    color: #d60000;
+    margin-bottom: 20px;
 }
 
-/* 상품 영역 */
-main {
-  flex: 1;
-  padding: 20px;
+.product {
+    margin-top: 20px;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.card {
-  border: 1px solid #ddd;
-  padding: 15px;
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
+.product img {
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .price {
-  color: red;
-  font-weight: bold;
+    font-size: 22px;
+    margin: 20px 0;
 }
 
-.btn {
-  margin-top: 10px;
-  padding: 8px 15px;
-  background: black;
-  color: white;
-  border: none;
-  cursor: pointer;
+.old-price {
+    text-decoration: line-through;
+    color: gray;
+    margin-right: 10px;
+}
+
+.new-price {
+    color: red;
+    font-weight: bold;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkred;
 }
 </style>
 
@@ -64,57 +68,38 @@ main {
 
 <body>
 
-<!-- 필터 -->
-<aside>
-  <h3>필터</h3>
-  <p><input type="checkbox"> 립 제품</p>
-  <p><input type="checkbox"> 틴트</p>
-</aside>
+<div class="container">
+    <h1>롬앤 립 제품 이벤트</h1>
 
-<!-- 상품 리스트 -->
-<main>
+    <div class="product">
+        <!-- A/B 테스트 이미지 -->
+        <img id="main-image" src="" alt="립 제품 이미지">
 
-<h2>롬앤 립 제품</h2>
+        <!-- 가격 정보 -->
+        <div class="price">
+            <span class="old-price">₩15,000</span>
+            →
+            <span class="new-price">₩12,750</span>
+        </div>
 
-<div class="grid">
-
-  <!-- 상품 1 -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
-    <p>롬앤 틴트</p>
-
-    <!-- A: 할인 -->
-    <div id="version-a">
-      <p class="price">15% 할인</p>
+        <!-- 구매 버튼 -->
+        <button>구매하기</button>
     </div>
-
-    <!-- B: 사은품 -->
-    <div id="version-b" style="display:none;">
-      <p style="color:blue; font-weight:bold;">미니 립 증정</p>
-    </div>
-
-    <button class="btn">구매하기</button>
-  </div>
-
-  <!-- 상품 2 -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1596704017254-975a1c3d4c22">
-    <p>롬앤 립스틱</p>
-    <p class="price">12,000원</p>
-    <button class="btn">구매하기</button>
-  </div>
-
-  <!-- 상품 3 -->
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa">
-    <p>롬앤 글로스</p>
-    <p class="price">10,000원</p>
-    <button class="btn">구매하기</button>
-  </div>
-
 </div>
 
-</main>
+<script>
+// 이미지 2개 (할인 vs 사은품)
+var images = [
+    "https://files.catbox.moe/5p6n8g.png", // 할인 이미지
+    "https://files.catbox.moe/7x9k2m.png"  // 사은품 이미지
+];
+
+// 랜덤으로 A/B 테스트 실행
+var randomIndex = Math.floor(Math.random() * 2);
+
+// 이미지 적용
+document.getElementById("main-image").src = images[randomIndex];
+</script>
 
 </body>
 </html>
