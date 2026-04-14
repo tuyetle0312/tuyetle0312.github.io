@@ -1,105 +1,226 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>롬앤 립 제품 이벤트</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>롬앤(rom&nd) 공식 스토어 - 단독 특가</title>
+    <style>
+        :root {
+            --primary-color: #d84315; /* 롬앤 시그니처 레드 */
+            --bg-gray: #fcfcfc;
+            --border-color: #eeeeee;
+            --text-dark: #222;
+        }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #fff5f5;
-    margin: 0;
-    padding: 0;
-}
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            margin: 0;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
 
-.container {
-    padding: 30px;
-}
+        /* 상단 배너 */
+        .top-banner {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            font-size: 13px;
+            letter-spacing: -0.5px;
+        }
 
-h1 {
-    color: #d60000;
-    margin-bottom: 20px;
-}
+        header {
+            background: white;
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
 
-.product {
-    margin-top: 20px;
-}
+        /* 메인 컨테이너 */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            padding: 0 20px;
+        }
 
-.product img {
-    width: 320px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+        /* 제품 이미지 섹션 */
+        .product-visual {
+            flex: 1;
+            min-width: 350px;
+            position: relative;
+        }
 
-.price {
-    font-size: 22px;
-    margin: 20px 0;
-}
+        .product-visual img {
+            width: 100%;
+            border-radius: 4px;
+            display: block;
+        }
 
-.old-price {
-    text-decoration: line-through;
-    color: gray;
-    margin-right: 10px;
-}
+        .sale-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
 
-.new-price {
-    color: red;
-    font-weight: bold;
-}
+        /* 제품 정보 섹션 */
+        .product-info {
+            flex: 1;
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-button {
-    padding: 12px 25px;
-    font-size: 18px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
+        .brand-name {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
 
-button:hover {
-    background-color: darkred;
-}
-</style>
+        h1 {
+            font-size: 32px;
+            margin: 0 0 15px 0;
+            font-weight: 700;
+        }
 
+        .price-area {
+            margin-bottom: 25px;
+        }
+
+        .discount {
+            color: var(--primary-color);
+            font-size: 28px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .current-price {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #bbb;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        /* 사은품 안내박스 */
+        .gift-section {
+            background: #fff5f5;
+            border: 1px solid #ffebeb;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .gift-title {
+            color: #d84315;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+
+        /* 구매 버튼 */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-buy {
+            flex: 2;
+            background: #222;
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-buy:hover {
+            background: #444;
+        }
+
+        .btn-cart {
+            flex: 1;
+            background: white;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .container { flex-direction: column; }
+            .product-visual { min-width: 100%; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
-    <h1>롬앤 립 제품 이벤트</h1>
+    <div class="top-banner">
+        지금 가입하면 첫 구매 무료배송 혜택까지!
+    </div>
 
-    <div class="product">
-        <!-- A/B 테스트 이미지 -->
-        <img id="main-image" src="" alt="립 제품 이미지">
+    <header>
+        rom&nd
+    </header>
 
-        <!-- 가격 정보 -->
-        <div class="price">
-            <span class="old-price">₩15,000</span>
-            →
-            <span class="new-price">₩12,750</span>
+    <main class="container">
+        <div class="product-visual">
+            <div class="sale-badge">15% OFF</div>
+            <img src="https://via.placeholder.com/600x750/f9f9f9/d84315?text=romnd+Juicy+Lasting+Tint" alt="롬앤 쥬시 래스팅 틴트">
         </div>
 
-        <!-- 구매 버튼 -->
-        <button>구매하기</button>
-    </div>
-</div>
+        <div class="product-info">
+            <div class="brand-name">rom&nd (롬앤)</div>
+            <h1>쥬시 래스팅 틴트 (13 colors)</h1>
+            
+            <div class="price-area">
+                <span class="discount">15%</span>
+                <span class="current-price">11,050원</span>
+                <span class="original-price">13,000원</span>
+            </div>
 
-<script>
-// 이미지 2개 (할인 vs 사은품)
-var images = [
-    "https://imgur.com/DWfxMqT", // 할인 이미지
-    "https://imgur.com/9tzTtb9"  // 사은품 이미지
-];
+            <div class="gift-section">
+                <div class="gift-title">🎁 구매 고객 단독 사은품</div>
+                <div style="font-size: 15px; color: #555;">
+                    지금 구매 시, <strong>롬앤 미니 틴트 1종</strong> 증정!<br>
+                    <span style="font-size: 12px; color: #999;">*재고 소진 시까지 (색상 랜덤 발송)</span>
+                </div>
+            </div>
 
-// 랜덤으로 A/B 테스트 실행
-var randomIndex = Math.floor(Math.random() * 2);
+            <div class="btn-group">
+                <button class="btn-cart">장바구니</button>
+                <button class="btn-buy" id="order-btn">바로 구매하기</button>
+            </div>
+            
+            <p style="margin-top: 20px; font-size: 13px; color: #888;">
+                평일 오후 2시 이전 주문 시 <b>오늘 출발</b>
+            </p>
+        </div>
+    </main>
 
-// 이미지 적용
-document.getElementById("main-image").src = images[randomIndex];
-</script>
+    <script>
+        document.getElementById('order-btn').addEventListener('click', function() {
+            alert('주문 페이지로 이동합니다. 사은품(미니 틴트)이 포함되었습니다!');
+        });
+    </script>
 
 </body>
 </html>
