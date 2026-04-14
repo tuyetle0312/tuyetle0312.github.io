@@ -2,30 +2,119 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>프로모션 A/B 테스트</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>실험용 쇼핑몰 페이지</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: sans-serif;
+  display: flex;
+}
+
+/* 왼쪽 필터 */
+aside {
+  width: 220px;
+  background: #f5f5f5;
+  padding: 20px;
+}
+
+aside h3 {
+  margin-bottom: 10px;
+}
+
+/* 상품 영역 */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+}
+
+.price {
+  color: red;
+  font-weight: bold;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
 </head>
 
-<body style="text-align:center; font-family:sans-serif;">
+<body>
 
-<h1>지금 바로 롬앤 혜택을 확인하세요!</h1>
+<!-- 필터 -->
+<aside>
+  <h3>필터</h3>
+  <p><input type="checkbox"> 립 제품</p>
+  <p><input type="checkbox"> 틴트</p>
+</aside>
 
-<p>롬앤 립 제품 프로모션</p>
+<!-- 상품 리스트 -->
+<main>
 
-<!-- A안: 할인 -->
-<div id="version-a">
-    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519" width="250">
-    <p style="color:red; font-weight:bold;">15% 할인 진행 중</p>
+<h2>롬앤 립 제품</h2>
+
+<div class="grid">
+
+  <!-- 상품 1 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519">
+    <p>롬앤 틴트</p>
+
+    <!-- A: 할인 -->
+    <div id="version-a">
+      <p class="price">15% 할인</p>
+    </div>
+
+    <!-- B: 사은품 -->
+    <div id="version-b" style="display:none;">
+      <p style="color:blue; font-weight:bold;">미니 립 증정</p>
+    </div>
+
+    <button class="btn">구매하기</button>
+  </div>
+
+  <!-- 상품 2 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1596704017254-975a1c3d4c22">
+    <p>롬앤 립스틱</p>
+    <p class="price">12,000원</p>
+    <button class="btn">구매하기</button>
+  </div>
+
+  <!-- 상품 3 -->
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa">
+    <p>롬앤 글로스</p>
+    <p class="price">10,000원</p>
+    <button class="btn">구매하기</button>
+  </div>
+
 </div>
 
-<!-- B안: 사은품 -->
-<div id="version-b" style="display:none;">
-    <img src="https://images.unsplash.com/photo-1596704017254-975a1c3d4c22" width="250">
-    <p style="color:blue; font-weight:bold;">미니 립 증정 이벤트</p>
-</div>
-
-<button style="padding:12px 25px; font-size:16px; margin-top:20px;">
-지금 구매하기
-</button>
+</main>
 
 </body>
 </html>
