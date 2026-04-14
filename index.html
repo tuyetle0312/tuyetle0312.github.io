@@ -11,6 +11,7 @@ body {
     text-align: center;
     background-color: #fff5f5;
     margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -19,12 +20,17 @@ body {
 
 h1 {
     color: #d60000;
+    margin-bottom: 20px;
 }
 
-img {
-    width: 320px;
+.product {
     margin-top: 20px;
-    border-radius: 10px;
+}
+
+.product img {
+    width: 320px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .price {
@@ -35,6 +41,7 @@ img {
 .old-price {
     text-decoration: line-through;
     color: gray;
+    margin-right: 10px;
 }
 
 .new-price {
@@ -48,9 +55,15 @@ button {
     background-color: red;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darkred;
 }
 </style>
+
 </head>
 
 <body>
@@ -58,26 +71,33 @@ button {
 <div class="container">
     <h1>롬앤 립 제품 이벤트</h1>
 
-    <img id="main-image" src="">
+    <div class="product">
+        <!-- A/B 테스트 이미지 -->
+        <img id="main-image" src="" alt="립 제품 이미지">
 
-    <div class="price">
-        <span class="old-price">₩15,000</span>
-        →
-        <span class="new-price">₩12,750</span>
+        <!-- 가격 정보 -->
+        <div class="price">
+            <span class="old-price">₩15,000</span>
+            →
+            <span class="new-price">₩12,750</span>
+        </div>
+
+        <!-- 구매 버튼 -->
+        <button>구매하기</button>
     </div>
-
-    <button>구매하기</button>
 </div>
 
 <script>
-// LINK ẢNH CHUẨN (KHÔNG LỖI)
+// 이미지 2개 (할인 vs 사은품)
 var images = [
-    "https://upload.wikimedia.org/wikipedia/commons/3/3a/Cosmetics_lipstick.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/8/8c/Lipstick.jpg"
+    "https://imgur.com/DWfxMqT", // 할인 이미지
+    "https://imgur.com/9tzTtb9"  // 사은품 이미지
 ];
 
+// 랜덤으로 A/B 테스트 실행
 var randomIndex = Math.floor(Math.random() * 2);
 
+// 이미지 적용
 document.getElementById("main-image").src = images[randomIndex];
 </script>
 
