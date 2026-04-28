@@ -1,94 +1,124 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lipstick Store - Lab</title>
+    <title>rom&nd A/B Test Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
-        body { font-family: 'Noto Sans KR', sans-serif; -webkit-tap-highlight-color: transparent; }
-        .product-card:active { transform: scale(0.98); transition: 0.1s; }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #fff; color: #333; }
+        .ab-hidden { display: none; }
+        .promo-footer { background-color: #f05a67; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 500; }
     </style>
 </head>
-<body class="bg-white">
+<body class="pb-32">
 
-    <header class="flex items-center justify-between p-4 border-b sticky top-0 bg-white z-10">
-        <button onclick="history.back()" class="p-2 active:bg-gray-100 rounded-full">
-            <i class="fa-solid fa-arrow-left text-xl"></i>
-        </button>
-        <h1 class="text-lg font-bold cursor-pointer" onclick="location.reload()">rom&nd</h1>
-        <div class="flex gap-2">
-            <button class="p-2 active:bg-gray-100 rounded-full"><i class="fa-solid fa-magnifying-glass text-xl"></i></button>
-            <div class="relative p-2 active:bg-gray-100 rounded-full cursor-pointer" onclick="alert('Giỏ hàng của bạn đang có 12 mục')">
+    <header class="flex items-center justify-between p-4 bg-white sticky top-0 z-50 border-b">
+        <button class="p-1"><i class="fa-solid fa-chevron-left text-xl"></i></button>
+        <h1 class="text-xl font-bold tracking-tight">rom&nd</h1>
+        <div class="flex gap-4">
+            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+            <div class="relative">
                 <i class="fa-solid fa-bag-shopping text-xl"></i>
-                <span class="absolute top-1 right-0 bg-red-500 text-white text-[10px] rounded-full px-1.5 border-2 border-white">12</span>
+                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1.5 border border-white">12</span>
             </div>
         </div>
     </header>
 
-    <section class="p-4">
-        <h2 class="text-xl font-bold mb-4 italic">rom&nd BEST & NEW</h2>
+    <div class="max-w-md mx-auto bg-white min-h-screen">
         
-        <div class="grid grid-cols-2 gap-4">
-            <div class="product-card cursor-pointer" onclick="alert('Đã mở chi tiết sản phẩm: Glasting Color Gloss')">
-                <div class="rounded-lg overflow-hidden bg-gray-100 aspect-square mb-2 relative group">
-                    <img src="https://images.unsplash.com/photo-1586776977607-310e9c725c37?auto=format&fit=crop&q=80&w=400" alt="Sản phẩm" class="w-full h-full object-cover group-hover:scale-105 transition">
-                    <span class="absolute top-2 right-2 bg-pink-400 text-white text-[10px] px-2 py-1 rounded-full">NEW</span>
+        <div class="w-full">
+            <img id="img-variant-a" src="https://raw.githubusercontent.com/username/repo/main/1000025381.png" class="w-full h-auto" alt="Giảm giá 20%">
+            
+            <img id="img-variant-b" src="https://raw.githubusercontent.com/username/repo/main/1000025380.png" class="w-full h-auto ab-hidden" alt="Tặng son dưỡng">
+        </div>
+
+        <div class="p-6">
+            <div class="flex justify-between items-start">
+                <div>
+                    <div class="text-xs text-gray-400 mb-1">BEST SELLER</div>
+                    <h2 class="text-xl font-bold">[롬앤] 쥬시 래스팅 틴트 제로</h2>
                 </div>
-                <p class="text-xs text-gray-500 mb-1 line-clamp-2">[Best Seller] Son bóng rom&nd Glasting Color Gloss</p>
-                <div class="flex items-center gap-2">
-                    <span class="text-red-500 font-bold">26%</span>
-                    <span class="font-bold">9.500đ~</span>
-                </div>
-                <div class="flex gap-1 mt-1">
-                    <span class="text-[10px] border border-pink-200 text-pink-400 px-1">Giao nhanh</span>
-                    <span class="text-[10px] bg-gray-100 text-gray-500 px-1 font-bold">BEST</span>
-                </div>
+                <button class="text-2xl text-gray-300"><i class="fa-regular fa-heart"></i></button>
+            </div>
+            
+            <div class="mt-4 flex items-center gap-3">
+                <span id="price-percent" class="text-2xl font-bold text-[#f05a67]">20%</span>
+                <span id="price-current" class="text-2xl font-bold text-gray-900">10,400원</span>
+                <span id="price-original" class="text-gray-400 line-through text-sm">13,000원</span>
             </div>
 
-            <div class="product-card cursor-pointer" onclick="alert('Đã mở chi tiết sản phẩm: Melting Balm')">
-                <div class="rounded-lg overflow-hidden bg-gray-100 aspect-square mb-2 relative group">
-                    <img src="https://images.unsplash.com/photo-1625093765366-d3c00582c319?auto=format&fit=crop&q=80&w=400" alt="Sản phẩm" class="w-full h-full object-cover group-hover:scale-105 transition">
-                </div>
-                <p class="text-xs text-gray-500 mb-1 line-clamp-2">[Mới] Son dưỡng có màu rom&nd Melting Balm</p>
-                <div class="flex items-center gap-2">
-                    <span class="text-red-500 font-bold">23%</span>
-                    <span class="font-bold">9.900đ~</span>
-                </div>
-                <div class="flex gap-1 mt-1">
-                    <span class="text-[10px] border border-pink-200 text-pink-400 px-1">Giao nhanh</span>
-                </div>
+            <div id="text-benefit-a" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                <p class="text-sm font-bold text-gray-800">✨ 지금 구매 시 20% 즉시 할인 혜택!</p>
+                <p class="text-xs text-gray-500 mt-1">바를수록 맑게 차오르는 3가지 광택을 만나보세요.</p>
+            </div>
+
+            <div id="text-benefit-b" class="ab-hidden mt-4 p-4 bg-[#fff5f6] rounded-lg border border-[#ffe4e6]">
+                <p class="text-sm font-bold text-[#f05a67]">🎁 지금 구매 시 미니 립밤 정품 증정!</p>
+                <p class="text-xs text-gray-500 mt-1">6가지 컬러 중 원하는 컬러를 선택하여 받아보세요.</p>
             </div>
         </div>
-    </section>
+    </div>
 
-    <hr class="border-4 border-gray-50 my-2">
-
-    <section class="p-4">
-        <h2 class="text-xl font-bold mb-4">Sản phẩm mới đáng chú ý</h2>
-        
-        <div class="flex gap-4 mb-6 cursor-pointer active:opacity-70 transition" onclick="alert('Chuyển hướng đến sản phẩm Apple Brown')">
-            <div class="w-28 h-28 flex-shrink-0 rounded-lg overflow-hidden bg-yellow-100">
-                <img src="https://images.unsplash.com/photo-1599733594230-6b823276abcc?auto=format&fit=crop&q=80&w=300" class="w-full h-full object-cover">
-            </div>
-            <div class="flex flex-col justify-center">
-                <p class="text-sm font-medium mb-1">Juicy Lasting Tint 3.5g #12 Apple Brown</p>
-                <div class="flex items-center gap-2">
-                    <span class="text-red-500 font-bold">50%</span>
-                    <span class="font-bold text-lg">6.500đ</span>
-                </div>
-                <div class="mt-2 text-[10px] border border-pink-200 text-pink-400 w-fit px-1">Giao nhanh 2h</div>
-            </div>
+    <div class="fixed bottom-[74px] left-0 right-0 max-w-md mx-auto z-40">
+        <div class="promo-footer">
+            지금 구매하고 특별한 혜택을 만나보세요! ♥
         </div>
-    </section>
+    </div>
 
-    <nav class="fixed bottom-0 w-full bg-white border-t flex justify-around py-3 text-gray-400 text-xs">
-        <div class="flex flex-col items-center gap-1 text-pink-500"><i class="fa-solid fa-house text-lg"></i><span>Trang chủ</span></div>
-        <div class="flex flex-col items-center gap-1"><i class="fa-solid fa-bars text-lg"></i><span>Danh mục</span></div>
-        <div class="flex flex-col items-center gap-1"><i class="fa-solid fa-heart text-lg"></i><span>Yêu thích</span></div>
-        <div class="flex flex-col items-center gap-1"><i class="fa-solid fa-user text-lg"></i><span>Của tôi</span></div>
-    </nav>
-    <div class="h-16"></div> </body>
+    <div class="fixed bottom-0 left-0 right-0 p-3 bg-white border-t flex gap-2 max-w-md mx-auto z-50">
+        <button class="flex-1 bg-zinc-100 text-gray-800 font-bold py-4 rounded-md">장바구니</button>
+        <button onclick="handlePurchase()" class="flex-[2] bg-black text-white font-bold py-4 rounded-md active:bg-zinc-800 transition shadow-lg">
+            구매하기
+        </button>
+    </div>
+
+    <script>
+        /**
+         * CÀI ĐẶT A/B TEST
+         * 'A' = Phiên bản Giảm giá 20%
+         * 'B' = Phiên bản Tặng quà Mini Lip Balm
+         */
+        const VARIANT = 'A'; 
+
+        function runTest(mode) {
+            const imgA = document.getElementById('img-variant-a');
+            const imgB = document.getElementById('img-variant-b');
+            const textA = document.getElementById('text-benefit-a');
+            const textB = document.getElementById('text-benefit-b');
+            const pCurrent = document.getElementById('price-current');
+            const pPercent = document.getElementById('price-percent');
+            const pOriginal = document.getElementById('price-original');
+
+            if (mode === 'B') {
+                // Hiển thị giao diện Tặng quà
+                imgA.classList.add('ab-hidden');
+                imgB.classList.remove('ab-hidden');
+                textA.classList.add('ab-hidden');
+                textB.classList.remove('ab-hidden');
+                
+                pCurrent.innerText = "13,000원"; // Giữ giá gốc
+                pPercent.classList.add('ab-hidden');
+                pOriginal.classList.add('ab-hidden');
+            } else {
+                // Hiển thị giao diện Giảm giá
+                imgA.classList.remove('ab-hidden');
+                imgB.classList.add('ab-hidden');
+                textA.classList.remove('ab-hidden');
+                textB.classList.add('ab-hidden');
+                
+                pCurrent.innerText = "10,400원"; // Giá đã giảm
+            }
+        }
+
+        function handlePurchase() {
+            alert('Đã ghi nhận hành động mua hàng cho phiên bản: ' + VARIANT);
+        }
+
+        // Chạy khởi tạo
+        runTest(VARIANT);
+    </script>
+</body>
 </html>
