@@ -3,56 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A/B 테스트 실험 페이지</title>
+    <title>로맨드(rom&nd) 공식 스토어</title>
     <style>
+        /* 기본 스타일 설정 */
         body {
-            font-family: 'Pretendard', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #f8f9fa;
+            font-family: 'Pretendard', -apple-system, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+            -webkit-font-smoothing: antialiased;
         }
-        .container {
-            max-width: 600px;
+
+        /* 상단 헤더 */
+        header {
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #f2f2f2;
+            position: sticky;
+            top: 0;
             background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            text-align: center;
+            z-index: 100;
+            font-weight: 800;
+            font-size: 20px;
+            letter-spacing: -0.5px;
         }
-        .product-image {
-            width: 100%;
+
+        .container {
             max-width: 500px;
-            border-radius: 10px;
+            margin: 0 auto;
+            padding-bottom: 100px;
+        }
+
+        /* 상품 이미지 섹션 - VWO에서 이미지를 교체할 부분 */
+        .product-visual {
+            width: 100%;
+            position: relative;
+            background-color: #f8f8f8;
+        }
+
+        .product-visual img {
+            width: 100%;
+            display: block;
+        }
+
+        /* 상품 정보 섹션 */
+        .product-detail {
+            padding: 24px 20px;
+        }
+
+        .brand-tag {
+            color: #999;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }
+
+        .product-name {
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            word-break: keep-all;
+        }
+
+        .price-info {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
             margin-bottom: 20px;
         }
-        .btn-buy {
-            background-color: #ff4d4d;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
+
+        .discount-rate {
+            color: #fa5252;
+            font-weight: 800;
+            font-size: 24px;
         }
-        h1 { font-size: 24px; color: #333; }
-        p { color: #666; }
+
+        .current-price {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        /* 배송 정보 박스 */
+        .delivery-box {
+            background-color: #f1f3f5;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: #495057;
+        }
+
+        .delivery-icon {
+            color: #228be6;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        /* 하단 구매 버튼 바 */
+        .bottom-actions {
+            position: fixed;
+            bottom: 0;
+            max-width: 500px;
+            width: 100%;
+            background: white;
+            padding: 12px 16px 24px 16px;
+            border-top: 1px solid #eee;
+            box-sizing: border-box;
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .btn-wish {
+            width: 56px;
+            height: 56px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .btn-direct-buy {
+            flex: 1;
+            height: 56px;
+            background: #000;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        /* 리뷰 평점 */
+        .rating {
+            color: #ffbf00;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
 
+    <header>rom&nd</header>
+
     <div class="container">
-        <h1>로맨드 틴트 특별 기획전</h1>
-        <p>지금 구매하시면 특별한 혜택이 기다리고 있습니다!</p>
+        <div class="product-visual">
+            <img id="main-banner" src="https://your-github-link.com/photo_a.jpg" alt="로맨드 틴트 기획전">
+        </div>
 
-        <img src="https://imgur.com/9tzTtb9" alt="로맨드 상품 이미지" class="product-image">
+        <div class="product-detail">
+            <div class="brand-tag">rom&nd Official Store ></div>
+            <div class="rating">★★★★★ (4,821)</div>
+            <h1 class="product-name" id="product-title">
+                [한정수량] 로맨드 쥬시 래스팅 틴트 기획 세트
+            </h1>
+            
+            <div class="price-info">
+                <span class="discount-rate" id="display-discount">HOT</span>
+                <span class="current-price">13,900원</span>
+            </div>
 
-        <button class="btn-buy" id="buy-button">지금 바로 구매하기</button>
+            <div class="delivery-box">
+                <div><span class="delivery-icon">무료배송</span> | 오늘 주문 시 내일 도착</div>
+                <div style="margin-top: 4px; font-size: 12px; color: #868e96;">제주/도서산간 지역 제외</div>
+            </div>
+        </div>
     </div>
 
-    </body>
+    <div class="bottom-actions">
+        <button class="btn-wish">♡</button>
+        <button class="btn-direct-buy" id="buy-button">지금 바로 구매하기</button>
+    </div>
+
+</body>
 </html>
