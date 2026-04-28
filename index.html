@@ -1,17 +1,106 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>나의 VWO 실험 페이지</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>립 커머스 실험 페이지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; }
+    </style>
 </head>
-<body>
-<h1>안녕하세요! VWO 실험 중입니다.</h1>
-<p>이 버튼의 색상을 바꾸는 A/B 테스트를 진행할 예정입니다.</p>
-<button id="test-button">구매하기</button>
+<body class="bg-white">
+
+    <header class="flex items-center justify-between p-4 border-b">
+        <i class="fa-solid fa-arrow-left text-xl"></i>
+        <h1 class="text-lg font-bold">롬앤(rom&nd)</h1>
+        <div class="flex gap-4">
+            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+            <div class="relative">
+                <i class="fa-solid fa-bag-shopping text-xl"></i>
+                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1.5">12</span>
+            </div>
+        </div>
+    </header>
+
+    <section class="p-4">
+        <h2 class="text-xl font-bold mb-4">롬앤 BEST & NEW</h2>
+        
+        <div class="grid grid-cols-2 gap-4">
+            <div class="relative">
+                <div class="rounded-lg overflow-hidden bg-gray-100 aspect-square mb-2 relative">
+                    <img src="https://images.unsplash.com/photo-1586776977607-310e9c725c37?auto=format&fit=crop&q=80&w=400" alt="제품" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-pink-400 text-white text-[10px] px-2 py-1 rounded-full">NEW</span>
+                </div>
+                <p class="text-xs text-gray-500 mb-1 leading-tight">[아일릿 원희 PICK] 롬앤 글래스팅 컬러 글로스</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-red-500 font-bold">26%</span>
+                    <span class="font-bold">9,500원~</span>
+                    <span class="text-xs text-gray-400 line-through">13,000원</span>
+                </div>
+                <div class="flex gap-1 mt-1">
+                    <span class="text-[10px] border border-pink-200 text-pink-400 px-1">오늘드림</span>
+                    <span class="text-[10px] bg-gray-100 text-gray-500 px-1 font-bold">BEST</span>
+                </div>
+                <div class="flex items-center text-[11px] text-gray-400 mt-1">
+                    <i class="fa-solid fa-star text-blue-300 mr-1"></i> 4.7 (49,291)
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="rounded-lg overflow-hidden bg-gray-100 aspect-square mb-2">
+                    <img src="https://images.unsplash.com/photo-1625093765366-d3c00582c319?auto=format&fit=crop&q=80&w=400" alt="제품" class="w-full h-full object-cover">
+                </div>
+                <p class="text-xs text-gray-500 mb-1 leading-tight">[NEW] 롬앤 글래스팅 멜팅 밤 (투톤)</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-red-500 font-bold">23%</span>
+                    <span class="font-bold">9,900원~</span>
+                </div>
+                <div class="flex gap-1 mt-1">
+                    <span class="text-[10px] border border-pink-200 text-pink-400 px-1">오늘드림</span>
+                </div>
+                <div class="flex items-center text-[11px] text-gray-400 mt-1">
+                    <i class="fa-solid fa-star text-blue-300 mr-1"></i> 4.7 (54,062)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="border-4 border-gray-50 my-2">
+
+    <section class="p-4">
+        <h2 class="text-xl font-bold mb-4">주목할 만한 신상</h2>
+        
+        <div class="flex gap-4 mb-6">
+            <div class="w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-yellow-100">
+                <img src="https://images.unsplash.com/photo-1599733594230-6b823276abcc?auto=format&fit=crop&q=80&w=300" alt="제품" class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col justify-center">
+                <p class="text-sm font-medium mb-1">롬앤 더 쥬시 래스팅 틴트 3.5g 12 애플브라운</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-red-500 font-bold">50%</span>
+                    <span class="font-bold text-lg">6,500원</span>
+                    <span class="text-sm text-gray-400 line-through">13,000원</span>
+                </div>
+                <div class="mt-2 text-[10px] border border-pink-200 text-pink-400 w-fit px-1">오늘드림</div>
+            </div>
+        </div>
+
+        <div class="flex gap-4">
+            <div class="w-32 h-32 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1631730359585-38a4935ccbbd?auto=format&fit=crop&q=80&w=300" alt="제품" class="w-full h-full object-cover">
+            </div>
+            <div class="flex flex-col justify-center">
+                <p class="text-sm font-medium mb-1">롬앤 무드 페블 네일 7ml 2colors</p>
+                <div class="flex items-center gap-2">
+                    <span class="text-red-500 font-bold">50%</span>
+                    <span class="font-bold text-lg">3,970원~</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
-샘플 코드
-실습을 위한 코드이며, 나중에
-본인이 원하는 대로 수정하면 됨
-이 코드를 수정해 이 페이지를 실험
-페이지로 사용해도 됨
