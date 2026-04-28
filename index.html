@@ -3,175 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>롬앤(rom&nd) 공식 온라인 스토어</title>
+    <title>A/B 테스트 실험 페이지</title>
     <style>
-        :root {
-            --primary-color: #d84315; 
-            --bg-gray: #f8f9fa;
-            --border-color: #dddddd;
-        }
-
         body {
-            font-family: 'Pretendard', -apple-system, sans-serif;
-            margin: 0;
+            font-family: 'Pretendard', sans-serif;
             display: flex;
-            background-color: #fff;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
         }
-
-        /* 왼쪽 필터 바 */
-        aside {
-            width: 250px;
+        .container {
+            max-width: 600px;
             background: white;
             padding: 20px;
-            border-right: 1px solid var(--border-color);
-            height: 100vh;
-            position: sticky;
-            top: 0;
-        }
-
-        .filter-group { margin-bottom: 25px; }
-        .filter-title { font-weight: bold; margin-bottom: 10px; display: block; font-size: 16px; }
-        .filter-item { font-size: 14px; color: #666; margin-bottom: 8px; cursor: pointer; }
-        .filter-item:hover { color: var(--primary-color); }
-
-        /* 메인 콘텐츠 */
-        main {
-            flex: 1;
-            padding: 40px;
-        }
-
-        .header-area {
-            margin-bottom: 30px;
-            border-bottom: 2px solid #222;
-            padding-bottom: 20px;
-        }
-
-        .promo-tag {
-            background: var(--primary-color);
-            color: white;
-            padding: 3px 8px;
-            font-size: 11px;
-            font-weight: bold;
-            vertical-align: middle;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            border: 1px solid transparent;
-            transition: all 0.3s;
-        }
-
-        .image-box {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background-color: #f4f4f4;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            font-size: 20px;
-            color: #ddd;
-            font-weight: bold;
-        }
-
-        .sale-badge {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background: #ff5252;
-            color: white;
-            padding: 5px 10px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-
-        .product-info { padding: 15px 0; }
-        .brand { font-size: 12px; color: #999; margin-bottom: 5px; }
-        .name { font-size: 16px; font-weight: 500; color: #333; margin-bottom: 8px; }
-        
-        .price-box { font-size: 18px; font-weight: bold; }
-        .discount-rate { color: var(--primary-color); margin-right: 8px; }
-        .original-price { text-decoration: line-through; color: #bbb; font-size: 14px; margin-left: 5px; font-weight: normal; }
-
-        .gift-notice {
-            margin-top: 12px;
-            font-size: 13px;
-            color: #d84315;
-            background: #fff5f2;
-            padding: 8px;
-            border-radius: 4px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             text-align: center;
         }
-
-        .btn-buy {
+        .product-image {
             width: 100%;
-            padding: 12px;
-            background: #222;
-            color: white;
-            border: none;
-            margin-top: 15px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 14px;
+            max-width: 500px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
-
-        .btn-buy:hover { background: #444; }
+        .btn-buy {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+        }
+        h1 { font-size: 24px; color: #333; }
+        p { color: #666; }
     </style>
 </head>
 <body>
 
-    <aside>
-        <h2 style="font-size: 22px; letter-spacing: -1px;">SHOP</h2>
-        <div class="filter-group">
-            <span class="filter-title">카테고리 (Category)</span>
-            <div class="filter-item">립메이크업 (Lip)</div>
-            <div class="filter-item">아이메이크업 (Eye)</div>
-            <div class="filter-item">베이스메이크업 (Base)</div>
-        </div>
-        <div class="filter-group">
-            <span class="filter-title">라인업</span>
-            <div class="filter-item">쥬시 래스팅 틴트</div>
-            <div class="filter-item">제로 벨벳 틴트</div>
-            <div class="filter-item">듀이풀 워터 틴트</div>
-        </div>
-    </aside>
+    <div class="container">
+        <h1>로맨드 틴트 특별 기획전</h1>
+        <p>지금 구매하시면 특별한 혜택이 기다리고 있습니다!</p>
 
-    <main>
-        <div class="header-area">
-            <span class="promo-tag">LIMITED</span>
-            <h1 style="margin: 10px 0;">베스트셀러 단독 기획전</h1>
-            <p style="color: #666; margin: 0;">15% 특별 할인 + 구매 고객 전원 <strong>미니 틴트 증정</strong></p>
-        </div>
+        <img src="https://imgur.com/9tzTtb9" alt="로맨드 상품 이미지" class="product-image">
 
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="image-box">
-                    ROM&ND
-                    <div class="sale-badge">15%</div>
-                </div>
-                <div class="product-info">
-                    <div class="brand">rom&nd</div>
-                    <div class="name">[기획] 쥬시 래스팅 틴트 (+미니 증정)</div>
-                    <div class="price-box">
-                        <span class="discount-rate">15%</span> 11,050원
-                        <span class="original-price">13,000원</span>
-                    </div>
-                    <div class="gift-notice">🎁 단독혜택: 미니 틴트 1:1 증정</div>
-                    <button class="btn-buy" id="order-btn">바로 구매하기</button>
-                </div>
-            </div>
-        </div>
-    </main>
+        <button class="btn-buy" id="buy-button">지금 바로 구매하기</button>
+    </div>
 
-    <script>
-        document.getElementById('order-btn').addEventListener('click', function() {
-            alert('주문 페이지로 이동합니다. 사은품 증정이 적용되었습니다.');
-        });
-    </script>
-</body>
+    </body>
 </html>
