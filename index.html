@@ -3,122 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>rom&nd A/B Test Page</title>
+    <title>롬앤(rom&nd) 공식몰 - 실험 페이지</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans KR', sans-serif; background-color: #fff; color: #333; }
-        .ab-hidden { display: none; }
-        .promo-footer { background-color: #f05a67; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 500; }
+        body { font-family: 'Noto Sans KR', sans-serif; -webkit-tap-highlight-color: transparent; }
+        .ab-hidden { display: none !important; }
+        .footer-banner { background-color: #f05a67; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 500; }
     </style>
 </head>
-<body class="pb-32">
+<body class="bg-white pb-32">
 
-    <header class="flex items-center justify-between p-4 bg-white sticky top-0 z-50 border-b">
-        <button class="p-1"><i class="fa-solid fa-chevron-left text-xl"></i></button>
-        <h1 class="text-xl font-bold tracking-tight">rom&nd</h1>
+    <header class="flex items-center justify-between p-4 bg-white border-b sticky top-0 z-50">
+        <button><i class="fa-solid fa-chevron-left text-xl"></i></button>
+        <h1 class="text-xl font-bold tracking-tight text-center flex-1 ml-8">rom&nd</h1>
         <div class="flex gap-4">
-            <i class="fa-solid fa-magnifying-glass text-xl"></i>
+            <button><i class="fa-solid fa-magnifying-glass text-xl"></i></button>
             <div class="relative">
                 <i class="fa-solid fa-bag-shopping text-xl"></i>
-                <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1.5 border border-white">12</span>
+                <span class="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1.5 border border-white">12</span>
             </div>
         </div>
     </header>
 
-    <div class="max-w-md mx-auto bg-white min-h-screen">
-        
+    <main class="max-w-md mx-auto">
         <div class="w-full">
-            <img id="img-variant-a" src="https://raw.githubusercontent.com/username/repo/main/1000025381.png" class="w-full h-auto" alt="Giảm giá 20%">
+            <img id="img-sale" src="https://your-image-link-here.com/sale_banner.jpg" class="w-full h-auto" alt="20% 할인 배너">
             
-            <img id="img-variant-b" src="https://raw.githubusercontent.com/username/repo/main/1000025380.png" class="w-full h-auto ab-hidden" alt="Tặng son dưỡng">
+            <img id="img-gift" src="https://your-image-link-here.com/gift_banner.jpg" class="w-full h-auto ab-hidden" alt="사은품 증정 배너">
         </div>
 
         <div class="p-6">
             <div class="flex justify-between items-start">
                 <div>
-                    <div class="text-xs text-gray-400 mb-1">BEST SELLER</div>
-                    <h2 class="text-xl font-bold">[롬앤] 쥬시 래스팅 틴트 제로</h2>
+                    <div class="text-[11px] text-gray-400 mb-1">BEST SELLER</div>
+                    <h2 class="text-xl font-bold text-gray-900 leading-snug">
+                        [롬앤] 쥬시 래스팅 틴트 제로<br>체리 밤 / 애플 브라운
+                    </h2>
                 </div>
                 <button class="text-2xl text-gray-300"><i class="fa-regular fa-heart"></i></button>
             </div>
             
-            <div class="mt-4 flex items-center gap-3">
+            <div id="price-section" class="mt-4 flex items-center gap-3">
                 <span id="price-percent" class="text-2xl font-bold text-[#f05a67]">20%</span>
                 <span id="price-current" class="text-2xl font-bold text-gray-900">10,400원</span>
-                <span id="price-original" class="text-gray-400 line-through text-sm">13,000원</span>
+                <span id="price-original" class="text-sm text-gray-400 line-through">13,000원</span>
             </div>
 
-            <div id="text-benefit-a" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
-                <p class="text-sm font-bold text-gray-800">✨ 지금 구매 시 20% 즉시 할인 혜택!</p>
-                <p class="text-xs text-gray-500 mt-1">바를수록 맑게 차오르는 3가지 광택을 만나보세요.</p>
+            <div id="benefit-sale" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                <p class="text-sm font-bold text-gray-800">✨ 지금 구매 시 20% 즉시 할인 적용</p>
+                <p class="text-[11px] text-gray-500 mt-1">한정 수량 타임세일 이벤트 진행 중</p>
             </div>
 
-            <div id="text-benefit-b" class="ab-hidden mt-4 p-4 bg-[#fff5f6] rounded-lg border border-[#ffe4e6]">
-                <p class="text-sm font-bold text-[#f05a67]">🎁 지금 구매 시 미니 립밤 정품 증정!</p>
-                <p class="text-xs text-gray-500 mt-1">6가지 컬러 중 원하는 컬러를 선택하여 받아보세요.</p>
+            <div id="benefit-gift" class="mt-4 p-4 bg-[#fff5f6] rounded-lg border border-[#ffe4e6] ab-hidden">
+                <p class="text-sm font-bold text-[#f05a67]">🎁 지금 구매 시 미니 립밤 정품 증정</p>
+                <p class="text-[11px] text-gray-500 mt-1">6가지 컬러 중 랜덤 1종 1:1 증정</p>
+            </div>
+
+            <div class="mt-8 border-t pt-6 grid grid-cols-3 gap-2 text-center text-[11px] text-gray-500">
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fa-solid fa-droplet text-lg text-[#f05a67]"></i>
+                    <span>촉촉한 수분감</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fa-solid fa-sun text-lg text-[#f05a67]"></i>
+                    <span>맑고 투명한 광택</span>
+                </div>
+                <div class="flex flex-col items-center gap-2">
+                    <i class="fa-solid fa-feather text-lg text-[#f05a67]"></i>
+                    <span>가벼운 사용감</span>
+                </div>
             </div>
         </div>
-    </div>
+    </main>
 
-    <div class="fixed bottom-[74px] left-0 right-0 max-w-md mx-auto z-40">
-        <div class="promo-footer">
+    <div class="fixed bottom-[80px] left-0 right-0 max-w-md mx-auto z-40">
+        <div class="footer-banner">
             지금 구매하고 특별한 혜택을 만나보세요! ♥
         </div>
     </div>
 
-    <div class="fixed bottom-0 left-0 right-0 p-3 bg-white border-t flex gap-2 max-w-md mx-auto z-50">
-        <button class="flex-1 bg-zinc-100 text-gray-800 font-bold py-4 rounded-md">장바구니</button>
-        <button onclick="handlePurchase()" class="flex-[2] bg-black text-white font-bold py-4 rounded-md active:bg-zinc-800 transition shadow-lg">
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t flex gap-2 max-w-md mx-auto z-50">
+        <button class="flex-1 bg-gray-100 py-4 font-bold rounded-md text-gray-800">장바구니</button>
+        <button onclick="handleOrder()" class="flex-[2] bg-black text-white py-4 font-bold rounded-md active:bg-zinc-800 transition">
             구매하기
         </button>
     </div>
 
     <script>
         /**
-         * CÀI ĐẶT A/B TEST
-         * 'A' = Phiên bản Giảm giá 20%
-         * 'B' = Phiên bản Tặng quà Mini Lip Balm
+         * A/B 테스트 설정 변수
+         * 'SALE' = 20% 할인 버전
+         * 'GIFT' = 사은품 증정 버전
          */
-        const VARIANT = 'A'; 
+        const TEST_MODE = 'SALE'; 
 
-        function runTest(mode) {
-            const imgA = document.getElementById('img-variant-a');
-            const imgB = document.getElementById('img-variant-b');
-            const textA = document.getElementById('text-benefit-a');
-            const textB = document.getElementById('text-benefit-b');
-            const pCurrent = document.getElementById('price-current');
-            const pPercent = document.getElementById('price-percent');
-            const pOriginal = document.getElementById('price-original');
+        function runABTest(mode) {
+            const imgSale = document.getElementById('img-sale');
+            const imgGift = document.getElementById('img-gift');
+            const benefitSale = document.getElementById('benefit-sale');
+            const benefitGift = document.getElementById('benefit-gift');
+            const pricePercent = document.getElementById('price-percent');
+            const priceCurrent = document.getElementById('price-current');
+            const priceOriginal = document.getElementById('price-original');
 
-            if (mode === 'B') {
-                // Hiển thị giao diện Tặng quà
-                imgA.classList.add('ab-hidden');
-                imgB.classList.remove('ab-hidden');
-                textA.classList.add('ab-hidden');
-                textB.classList.remove('ab-hidden');
+            if (mode === 'GIFT') {
+                // 사은품 버전 UI 적용
+                imgSale.classList.add('ab-hidden');
+                imgGift.classList.remove('ab-hidden');
+                benefitSale.classList.add('ab-hidden');
+                benefitGift.classList.remove('ab-hidden');
                 
-                pCurrent.innerText = "13,000원"; // Giữ giá gốc
-                pPercent.classList.add('ab-hidden');
-                pOriginal.classList.add('ab-hidden');
+                priceCurrent.innerText = "13,000원"; // 정상가 표시
+                pricePercent.classList.add('ab-hidden');
+                priceOriginal.classList.add('ab-hidden');
             } else {
-                // Hiển thị giao diện Giảm giá
-                imgA.classList.remove('ab-hidden');
-                imgB.classList.add('ab-hidden');
-                textA.classList.remove('ab-hidden');
-                textB.classList.add('ab-hidden');
+                // 할인 버전 UI 적용 (기본값)
+                imgSale.classList.remove('ab-hidden');
+                imgGift.classList.add('ab-hidden');
+                benefitSale.classList.remove('ab-hidden');
+                benefitGift.classList.add('ab-hidden');
                 
-                pCurrent.innerText = "10,400원"; // Giá đã giảm
+                priceCurrent.innerText = "10,400원"; // 할인가 표시
             }
         }
 
-        function handlePurchase() {
-            alert('Đã ghi nhận hành động mua hàng cho phiên bản: ' + VARIANT);
+        function handleOrder() {
+            alert('구매 페이지로 이동합니다. (현재 모드: ' + TEST_MODE + ')');
         }
 
-        // Chạy khởi tạo
-        runTest(VARIANT);
+        // 초기 실행
+        runABTest(TEST_MODE);
     </script>
 </body>
 </html>
