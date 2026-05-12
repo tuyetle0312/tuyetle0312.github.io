@@ -1,140 +1,211 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>롬앤(rom&nd) 공식몰 - 실험 페이지</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans KR', sans-serif; -webkit-tap-highlight-color: transparent; }
-        .ab-hidden { display: none !important; }
-        .footer-banner { background-color: #f05a67; color: white; text-align: center; padding: 10px; font-size: 13px; font-weight: 500; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rom&nd A/B Test</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    body{
+      font-family:'Noto Sans KR', sans-serif;
+      background:#fff;
+    }
+
+    .ab-hidden{
+      display:none !important;
+    }
+
+    .banner{
+      background:#f05a67;
+      color:white;
+      text-align:center;
+      padding:10px;
+      font-size:13px;
+      font-weight:bold;
+    }
+  </style>
 </head>
-<body class="bg-white pb-32">
 
-    <header class="flex items-center justify-between p-4 bg-white border-b sticky top-0 z-50">
-        <button><i class="fa-solid fa-chevron-left text-xl"></i></button>
-        <h1 class="text-xl font-bold tracking-tight text-center flex-1 ml-8">rom&nd</h1>
-        <div class="flex gap-4">
-            <button><i class="fa-solid fa-magnifying-glass text-xl"></i></button>
-            <div class="relative">
-                <i class="fa-solid fa-bag-shopping text-xl"></i>
-                <span class="absolute -top-1 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1.5 border border-white">12</span>
-            </div>
-        </div>
-    </header>
+<body class="pb-32">
 
-    <main class="max-w-md mx-auto">
-        <div class="w-full">
-            <img id="img-sale" src="https://imgur.com/a/3hrl6dc" class="w-full h-auto" alt="20% 할인 배너">
-            
-            <img id="img-gift" src="https://imgur.com/a/CqieG0J" class="w-full h-auto ab-hidden" alt="사은품 증정 배너">
-        </div>
+<!-- HEADER -->
+<header class="flex items-center justify-between p-4 border-b sticky top-0 bg-white z-50">
 
-        <div class="p-6">
-            <div class="flex justify-between items-start">
-                <div>
-                    <div class="text-[11px] text-gray-400 mb-1">BEST SELLER</div>
-                    <h2 class="text-xl font-bold text-gray-900 leading-snug">
-                        [롬앤] 쥬시 래스팅 틴트 제로<br>체리 밤 / 애플 브라운
-                    </h2>
-                </div>
-                <button class="text-2xl text-gray-300"><i class="fa-regular fa-heart"></i></button>
-            </div>
-            
-            <div id="price-section" class="mt-4 flex items-center gap-3">
-                <span id="price-percent" class="text-2xl font-bold text-[#f05a67]">20%</span>
-                <span id="price-current" class="text-2xl font-bold text-gray-900">10,400원</span>
-                <span id="price-original" class="text-sm text-gray-400 line-through">13,000원</span>
-            </div>
+  <button>
+    <i class="fa-solid fa-chevron-left text-xl"></i>
+  </button>
 
-            <div id="benefit-sale" class="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
-                <p class="text-sm font-bold text-gray-800">✨ 지금 구매 시 20% 즉시 할인 적용</p>
-                <p class="text-[11px] text-gray-500 mt-1">한정 수량 타임세일 이벤트 진행 중</p>
-            </div>
+  <h1 class="text-xl font-bold">rom&nd</h1>
 
-            <div id="benefit-gift" class="mt-4 p-4 bg-[#fff5f6] rounded-lg border border-[#ffe4e6] ab-hidden">
-                <p class="text-sm font-bold text-[#f05a67]">🎁 지금 구매 시 미니 립밤 정품 증정</p>
-                <p class="text-[11px] text-gray-500 mt-1">6가지 컬러 중 랜덤 1종 1:1 증정</p>
-            </div>
+  <div class="flex gap-4">
+    <i class="fa-solid fa-magnifying-glass text-xl"></i>
 
-            <div class="mt-8 border-t pt-6 grid grid-cols-3 gap-2 text-center text-[11px] text-gray-500">
-                <div class="flex flex-col items-center gap-2">
-                    <i class="fa-solid fa-droplet text-lg text-[#f05a67]"></i>
-                    <span>촉촉한 수분감</span>
-                </div>
-                <div class="flex flex-col items-center gap-2">
-                    <i class="fa-solid fa-sun text-lg text-[#f05a67]"></i>
-                    <span>맑고 투명한 광택</span>
-                </div>
-                <div class="flex flex-col items-center gap-2">
-                    <i class="fa-solid fa-feather text-lg text-[#f05a67]"></i>
-                    <span>가벼운 사용감</span>
-                </div>
-            </div>
-        </div>
-    </main>
+    <div class="relative">
+      <i class="fa-solid fa-bag-shopping text-xl"></i>
 
-    <div class="fixed bottom-[80px] left-0 right-0 max-w-md mx-auto z-40">
-        <div class="footer-banner">
-            지금 구매하고 특별한 혜택을 만나보세요! ♥
-        </div>
+      <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1">
+        2
+      </span>
+    </div>
+  </div>
+
+</header>
+
+<!-- MAIN -->
+<main class="max-w-md mx-auto">
+
+  <!-- IMAGE -->
+  <img
+    src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=800&auto=format&fit=crop"
+    class="w-full"
+    alt="lip tint">
+
+  <!-- PRODUCT -->
+  <div class="p-6">
+
+    <div class="text-[11px] text-gray-400 mb-1">
+      BEST SELLER
     </div>
 
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t flex gap-2 max-w-md mx-auto z-50">
-        <button class="flex-1 bg-gray-100 py-4 font-bold rounded-md text-gray-800">장바구니</button>
-        <button onclick="handleOrder()" class="flex-[2] bg-black text-white py-4 font-bold rounded-md active:bg-zinc-800 transition">
-            구매하기
-        </button>
+    <h2 class="text-xl font-bold leading-snug">
+      [롬앤] 쥬시 래스팅 틴트
+    </h2>
+
+    <!-- PRICE -->
+    <div class="mt-4 flex items-center gap-3">
+
+      <span id="discount-percent"
+      class="text-2xl font-bold text-pink-500">
+        20%
+      </span>
+
+      <span id="current-price"
+      class="text-2xl font-bold">
+        10,400원
+      </span>
+
+      <span id="original-price"
+      class="text-sm text-gray-400 line-through">
+        13,000원
+      </span>
+
     </div>
 
-    <script>
-        /**
-         * A/B 테스트 설정 변수
-         * 'SALE' = 20% 할인 버전
-         * 'GIFT' = 사은품 증정 버전
-         */
-        const TEST_MODE = 'SALE'; 
+    <!-- SALE VERSION -->
+    <div id="sale-box"
+    class="mt-5 p-4 bg-gray-50 rounded-xl">
 
-        function runABTest(mode) {
-            const imgSale = document.getElementById('img-sale');
-            const imgGift = document.getElementById('img-gift');
-            const benefitSale = document.getElementById('benefit-sale');
-            const benefitGift = document.getElementById('benefit-gift');
-            const pricePercent = document.getElementById('price-percent');
-            const priceCurrent = document.getElementById('price-current');
-            const priceOriginal = document.getElementById('price-original');
+      <p class="font-bold">
+        🔥 20% 즉시 할인
+      </p>
 
-            if (mode === 'GIFT') {
-                // 사은품 버전 UI 적용
-                imgSale.classList.add('ab-hidden');
-                imgGift.classList.remove('ab-hidden');
-                benefitSale.classList.add('ab-hidden');
-                benefitGift.classList.remove('ab-hidden');
-                
-                priceCurrent.innerText = "13,000원"; // 정상가 표시
-                pricePercent.classList.add('ab-hidden');
-                priceOriginal.classList.add('ab-hidden');
-            } else {
-                // 할인 버전 UI 적용 (기본값)
-                imgSale.classList.remove('ab-hidden');
-                imgGift.classList.add('ab-hidden');
-                benefitSale.classList.remove('ab-hidden');
-                benefitGift.classList.add('ab-hidden');
-                
-                priceCurrent.innerText = "10,400원"; // 할인가 표시
-            }
-        }
+      <p class="text-xs text-gray-500 mt-1">
+        타임세일 이벤트 진행 중
+      </p>
 
-        function handleOrder() {
-            alert('구매 페이지로 이동합니다. (현재 모드: ' + TEST_MODE + ')');
-        }
+    </div>
 
-        // 초기 실행
-        runABTest(TEST_MODE);
-    </script>
+    <!-- GIFT VERSION -->
+    <div id="gift-box"
+    class="mt-5 p-4 bg-pink-50 rounded-xl ab-hidden">
+
+      <p class="font-bold text-pink-500">
+        🎁 립밤 증정 이벤트
+      </p>
+
+      <p class="text-xs text-gray-500 mt-1">
+        랜덤 컬러 1종 증정
+      </p>
+
+    </div>
+
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<div class="fixed bottom-[80px] left-0 right-0 max-w-md mx-auto z-40">
+
+  <div class="banner">
+    지금 구매하고 특별 혜택 받기 ♥
+  </div>
+
+</div>
+
+<!-- BUTTON -->
+<div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t flex gap-2 max-w-md mx-auto">
+
+  <button class="flex-1 bg-gray-100 py-4 rounded-lg font-bold">
+    장바구니
+  </button>
+
+  <button onclick="purchase()"
+  class="flex-[2] bg-black text-white py-4 rounded-lg font-bold">
+
+    구매하기
+
+  </button>
+
+</div>
+
+<script>
+
+  // RANDOM A/B TEST
+  const TEST_MODE = Math.random() < 0.5 ? 'SALE' : 'GIFT';
+
+  function runABTest(mode){
+
+    const saleBox = document.getElementById('sale-box');
+    const giftBox = document.getElementById('gift-box');
+
+    const percent = document.getElementById('discount-percent');
+    const currentPrice = document.getElementById('current-price');
+    const originalPrice = document.getElementById('original-price');
+
+    // GIFT VERSION
+    if(mode === 'GIFT'){
+
+      saleBox.classList.add('ab-hidden');
+      giftBox.classList.remove('ab-hidden');
+
+      percent.classList.add('ab-hidden');
+      originalPrice.classList.add('ab-hidden');
+
+      currentPrice.innerText = '13,000원';
+
+    }
+
+    // SALE VERSION
+    else{
+
+      saleBox.classList.remove('ab-hidden');
+      giftBox.classList.add('ab-hidden');
+
+      percent.classList.remove('ab-hidden');
+      originalPrice.classList.remove('ab-hidden');
+
+      currentPrice.innerText = '10,400원';
+
+    }
+
+    console.log("현재 테스트 버전:", mode);
+  }
+
+  // PURCHASE BUTTON
+  function purchase(){
+
+    alert("구매 완료! 현재 버전: " + TEST_MODE);
+
+  }
+
+  // RUN
+  runABTest(TEST_MODE);
+
+</script>
+
 </body>
 </html>
