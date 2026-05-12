@@ -3,16 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>rom&nd A/B Test</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
+
     body{
       font-family:'Noto Sans KR', sans-serif;
-      background:#fff;
+      background:#ffffff;
     }
 
     .ab-hidden{
@@ -27,7 +30,9 @@
       font-size:13px;
       font-weight:bold;
     }
+
   </style>
+
 </head>
 
 <body class="pb-32">
@@ -39,18 +44,24 @@
     <i class="fa-solid fa-chevron-left text-xl"></i>
   </button>
 
-  <h1 class="text-xl font-bold">rom&nd</h1>
+  <h1 class="text-xl font-bold">
+    rom&nd
+  </h1>
 
   <div class="flex gap-4">
+
     <i class="fa-solid fa-magnifying-glass text-xl"></i>
 
     <div class="relative">
+
       <i class="fa-solid fa-bag-shopping text-xl"></i>
 
       <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full px-1">
         2
       </span>
+
     </div>
+
   </div>
 
 </header>
@@ -58,13 +69,21 @@
 <!-- MAIN -->
 <main class="max-w-md mx-auto">
 
-  <!-- IMAGE -->
+  <!-- SALE IMAGE -->
   <img
-    src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=800&auto=format&fit=crop"
-    class="w-full"
-    alt="lip tint">
+  id="sale-image"
+  src="https://i.imgur.com/9tzTtb9.jpeg"
+  class="w-full h-auto object-cover"
+  alt="sale event">
 
-  <!-- PRODUCT -->
+  <!-- GIFT IMAGE -->
+  <img
+  id="gift-image"
+  src="https://i.imgur.com/DWfxMqT.jpeg"
+  class="w-full h-auto object-cover ab-hidden"
+  alt="gift event">
+
+  <!-- PRODUCT INFO -->
   <div class="p-6">
 
     <div class="text-[11px] text-gray-400 mb-1">
@@ -80,12 +99,12 @@
 
       <span id="discount-percent"
       class="text-2xl font-bold text-pink-500">
-        20%
+        15%
       </span>
 
       <span id="current-price"
       class="text-2xl font-bold">
-        10,400원
+        11,050원
       </span>
 
       <span id="original-price"
@@ -100,7 +119,7 @@
     class="mt-5 p-4 bg-gray-50 rounded-xl">
 
       <p class="font-bold">
-        🔥 20% 즉시 할인
+        🔥 15% 즉시 할인
       </p>
 
       <p class="text-xs text-gray-500 mt-1">
@@ -114,7 +133,7 @@
     class="mt-5 p-4 bg-pink-50 rounded-xl ab-hidden">
 
       <p class="font-bold text-pink-500">
-        🎁 립밤 증정 이벤트
+        🎁 미니 립밤 증정
       </p>
 
       <p class="text-xs text-gray-500 mt-1">
@@ -123,11 +142,31 @@
 
     </div>
 
+    <!-- PRODUCT FEATURES -->
+    <div class="mt-8 border-t pt-6 grid grid-cols-3 gap-2 text-center text-[11px] text-gray-500">
+
+      <div class="flex flex-col items-center gap-2">
+        <i class="fa-solid fa-droplet text-lg text-pink-500"></i>
+        <span>촉촉한 수분감</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-2">
+        <i class="fa-solid fa-sun text-lg text-pink-500"></i>
+        <span>맑고 투명한 광택</span>
+      </div>
+
+      <div class="flex flex-col items-center gap-2">
+        <i class="fa-solid fa-feather text-lg text-pink-500"></i>
+        <span>가벼운 사용감</span>
+      </div>
+
+    </div>
+
   </div>
 
 </main>
 
-<!-- FOOTER -->
+<!-- EVENT BANNER -->
 <div class="fixed bottom-[80px] left-0 right-0 max-w-md mx-auto z-40">
 
   <div class="banner">
@@ -136,7 +175,7 @@
 
 </div>
 
-<!-- BUTTON -->
+<!-- BUY BUTTON -->
 <div class="fixed bottom-0 left-0 right-0 p-4 bg-white border-t flex gap-2 max-w-md mx-auto">
 
   <button class="flex-1 bg-gray-100 py-4 rounded-lg font-bold">
@@ -162,6 +201,9 @@
     const saleBox = document.getElementById('sale-box');
     const giftBox = document.getElementById('gift-box');
 
+    const saleImage = document.getElementById('sale-image');
+    const giftImage = document.getElementById('gift-image');
+
     const percent = document.getElementById('discount-percent');
     const currentPrice = document.getElementById('current-price');
     const originalPrice = document.getElementById('original-price');
@@ -171,6 +213,9 @@
 
       saleBox.classList.add('ab-hidden');
       giftBox.classList.remove('ab-hidden');
+
+      saleImage.classList.add('ab-hidden');
+      giftImage.classList.remove('ab-hidden');
 
       percent.classList.add('ab-hidden');
       originalPrice.classList.add('ab-hidden');
@@ -185,14 +230,18 @@
       saleBox.classList.remove('ab-hidden');
       giftBox.classList.add('ab-hidden');
 
+      saleImage.classList.remove('ab-hidden');
+      giftImage.classList.add('ab-hidden');
+
       percent.classList.remove('ab-hidden');
       originalPrice.classList.remove('ab-hidden');
 
-      currentPrice.innerText = '10,400원';
+      currentPrice.innerText = '11,050원';
 
     }
 
     console.log("현재 테스트 버전:", mode);
+
   }
 
   // PURCHASE BUTTON
@@ -202,7 +251,7 @@
 
   }
 
-  // RUN
+  // RUN TEST
   runABTest(TEST_MODE);
 
 </script>
